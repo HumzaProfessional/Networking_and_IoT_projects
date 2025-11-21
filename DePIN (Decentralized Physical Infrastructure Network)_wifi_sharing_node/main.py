@@ -228,9 +228,4 @@ def start_server():
 # Auto-run
 start_server()
 
-                pass
-
-# Auto-run
-start_server()
-
 
