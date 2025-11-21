@@ -64,20 +64,36 @@ def make_devices_table(ledger):
     return rows
 
 # ============ Wi-Fi (STA mode, connect to your router) =================
-
 def connect_wifi():
+    import network, time
+
+    # Turn off AP mode to avoid conflicts
+    ap = network.WLAN(network.AP_IF)
+    ap.active(False)
+
     wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
 
-    if not wlan.isconnected():
-        print("Connecting to Wi-Fi...")
+    # Make sure it's active
+    if not wlan.active():
+        wlan.active(True)
+
+    # Already connected? just return
+    if wlan.isconnected():
+        print("Already connected:", wlan.ifconfig())
+        return wlan
+
+    print("Connecting to Wi-Fi...")
+    try:
         wlan.connect(SSID, PASSWORD)
+    except OSError as e:
+        print("Wi-Fi connect() error:", e)
+        return None
 
-        max_wait = 20
-        while max_wait > 0 and not wlan.isconnected():
-            print("  waiting for connection...")
-            time.sleep(0.5)
-            max_wait -= 1
+    max_wait = 20
+    while max_wait > 0 and not wlan.isconnected():
+        print("  waiting for connection...")
+        time.sleep(0.5)
+        max_wait -= 1
 
     if wlan.isconnected():
         print("Connected!")
@@ -86,6 +102,7 @@ def connect_wifi():
     else:
         print("Failed to connect to Wi-Fi.")
         return None
+
 
 # ======================= HTML PAGE =====================================
 
@@ -149,18 +166,8 @@ def web_page(ledger, this_device_id=None, this_wallet=None):
 def start_server():
     wlan = connect_wifi()
     if wlan is None:
-        return
-
-    ip = wlan.ifconfig()[0]
-    print("ESP32 Web server running at http://%s" % ip)
-
-    # Socket setup
-    addr = socket.getaddrinfo("0.0.0.0", 80)[0][-1]
-    s = socket.socket()
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    s.bind(addr)
-    s.listen(5)
-    print("Listening on", addr)
+        return  # bail out gracefully
+    ...
 
     ledger = load_ledger()
     save_counter = 0
