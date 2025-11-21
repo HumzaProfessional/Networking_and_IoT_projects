@@ -4,8 +4,8 @@ from machine import Pin
 import time
 
 # ==== Wi-Fi CONFIG ====
-SSID = "Sarida_Network"
-PASSWORD = "7063316088"
+SSID = "//"
+PASSWORD = "//"
 
 # ==== LED SETUP (GPIO 2) ====
 led = Pin(2, Pin.OUT)
