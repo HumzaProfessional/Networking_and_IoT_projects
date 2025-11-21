@@ -6,8 +6,8 @@ import ujson as json
 import os
 
 # ==== Wi-Fi CONFIG ====
-SSID = "//"
-PASSWORD = "//"
+SSID = "Sarida_Network"
+PASSWORD = "7063316088"
 
 # ====== JSON / LEDGER FUNCTIONS =================================
 
@@ -167,7 +167,13 @@ def start_server():
     wlan = connect_wifi()
     if wlan is None:
         return  # bail out gracefully
-    ...
+
+    # --- create and bind socket ---
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    s.bind(("", 80))      # listen on all interfaces, port 80
+    s.listen(5)
+    print("ESP32 Web server running at http://%s" % wlan.ifconfig()[0])
 
     ledger = load_ledger()
     save_counter = 0
@@ -178,7 +184,8 @@ def start_server():
             print("Client:", client_addr)
             request = client.recv(1024)  # we don’t really parse path yet
 
-            device_id = client_addr[0]  # use IP as “device ID” for now
+            # use IP address as “device ID” for now
+            device_id = client_addr[0]
             wallet = get_or_create_wallet(ledger, device_id)
 
             if not can_access(wallet, cost_per_request=1):
@@ -192,7 +199,7 @@ def start_server():
                 client.send(body_bytes)
                 client.close()
 
-                # still record that they tried
+                # still record that they tried (no cost)
                 record_usage(wallet, bytes_served=len(body_bytes), cost_per_request=0)
                 continue
 
@@ -216,6 +223,11 @@ def start_server():
             try:
                 client.close()
             except:
+                pass
+
+# Auto-run
+start_server()
+
                 pass
 
 # Auto-run
