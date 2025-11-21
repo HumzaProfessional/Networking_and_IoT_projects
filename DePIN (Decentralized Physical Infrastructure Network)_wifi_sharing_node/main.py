@@ -6,8 +6,8 @@ import ujson as json
 import os
 
 # ==== Wi-Fi CONFIG ====
-SSID = "Sarida_Network"
-PASSWORD = "7063316088"
+SSID = ""
+PASSWORD = ""
 
 # ====== JSON / LEDGER FUNCTIONS =================================
 
