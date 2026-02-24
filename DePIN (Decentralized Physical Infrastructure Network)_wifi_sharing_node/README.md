@@ -49,3 +49,18 @@ def make_devices_table(ledger):
 
 ```
 * Create an array that gathers date from a connected device. The row table format provides the device ip address, the "token balance", request amount, and bit-rate.
+
+
+
+
+
+
+
+
+
+
+
+## Referces 
+
+https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
+https://realpython.com/python-json/
