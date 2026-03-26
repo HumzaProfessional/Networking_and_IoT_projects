@@ -49,7 +49,51 @@ def make_devices_table(ledger):
 
 ```
 * Generates HTML table rows from stored device wallet data. Each row displays the device IP address, token balance, number of requests, and total bytes served
-* 
+
+``` python
+
+def connect_wifi():
+    import network, time
+
+    # Turn off AP mode to avoid conflicts
+    ap = network.WLAN(network.AP_IF)
+    ap.active(False)
+
+    wlan = network.WLAN(network.STA_IF)
+
+    # Make sure it's active
+    if not wlan.active():
+        wlan.active(True)
+
+    # Already connected? just return
+    if wlan.isconnected():
+        print("Already connected:", wlan.ifconfig())
+        return wlan
+
+    print("Connecting to Wi-Fi...")
+    try:
+        wlan.connect(SSID, PASSWORD)
+    except OSError as e:
+        print("Wi-Fi connect() error:", e)
+        return None
+
+    max_wait = 20
+    while max_wait > 0 and not wlan.isconnected():
+        print("  waiting for connection...")
+        time.sleep(0.5)
+        max_wait -= 1
+
+    if wlan.isconnected():
+        print("Connected!")
+        print("Network config:", wlan.ifconfig())
+        return wlan
+    else:
+        print("Failed to connect to Wi-Fi.")
+        return None
+
+```
+
+This part handles the wifi connecti and response. It ensured a connection happens, and if one doesn't happen it tries again. Printed prompts were also made to notifty the user on the status of the connection.
 
 
 
