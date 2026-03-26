@@ -48,11 +48,8 @@ def make_devices_table(ledger):
     return rows
 
 ```
-* Create an array that gathers date from a connected device. The row table format provides the device ip address, the "token balance", request amount, and bit-rate.
-
-
-
-
+* Generates HTML table rows from stored device wallet data. Each row displays the device IP address, token balance, number of requests, and total bytes served
+* 
 
 
 
@@ -62,8 +59,9 @@ def make_devices_table(ledger):
 
 ## References
 
-https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
-https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/
-https://realpython.com/python-json/
-https://docs.micropython.org/en/latest/library/json.html
+*https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
+*https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/
+*https://realpython.com/python-json/
+*https://docs.micropython.org/en/latest/library/json.html
+*https://docs.micropython.org/en/latest/library/os.html
 
