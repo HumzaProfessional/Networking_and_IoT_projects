@@ -60,7 +60,10 @@ def make_devices_table(ledger):
 
 
 
-## Referces 
+## References
 
 https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
+https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/
 https://realpython.com/python-json/
+https://docs.micropython.org/en/latest/library/json.html
+
