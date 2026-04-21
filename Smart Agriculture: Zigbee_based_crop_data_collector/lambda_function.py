@@ -16,7 +16,6 @@ def lambda_handler(event, context):
 
     if crop == "tomato":
 
-        # Humidity check
         if humidity is None:
             result["humidity_status"] = "missing"
         elif 60 <= humidity <= 70:
@@ -26,7 +25,6 @@ def lambda_handler(event, context):
         else:
             result["humidity_status"] = "too high"
 
-        # Temperature check
         if temperature is None:
             result["temperature_status"] = "missing"
         elif 21 <= temperature <= 27:
@@ -36,7 +34,6 @@ def lambda_handler(event, context):
         else:
             result["temperature_status"] = "too high"
 
-        # Overall decision logic
         if (
             result["humidity_status"] == "good"
             and result["temperature_status"] == "good"
@@ -45,4 +42,5 @@ def lambda_handler(event, context):
         else:
             result["overall_status"] = "needs adjustment"
 
+    print("Evaluated result:", result)
     return result
