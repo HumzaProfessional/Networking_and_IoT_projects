@@ -42,5 +42,38 @@ def lambda_handler(event, context):
         else:
             result["overall_status"] = "needs adjustment"
 
-    print("Evaluated result:", result)
+
+    elif crop == "corn":
+
+        if humidity is None:
+            result["humidity_status"] = "missing"
+        elif 40 <= humidity <= 60:
+            result["humidity_status"] = "good"
+        elif humidity < 40:
+            result["humidity_status"] = "too low"
+        else:
+            result["humidity_status"] = "too high"
+
+        if temperature is None:
+            result["temperature_status"] = "missing"
+        elif 25 <= temperature <= 33:
+            result["temperature_status"] = "good"
+        elif temperature < 25:
+            result["temperature_status"] = "too low"
+        else:
+            result["temperature_status"] = "too high"
+
+        if (
+            result["humidity_status"] == "good"
+            and result["temperature_status"] == "good"
+        ):
+            result["overall_status"] = "optimal"
+        else:
+            result["overall_status"] = "needs adjustment"
+
+
+    else:
+        result["overall_status"] = "crop not recognized"
+
+    print("Result:", result)
     return result
