@@ -77,3 +77,17 @@ def lambda_handler(event, context):
 
     print("Result:", result)
     return result
+
+print("\nCrop Evaluation Table")
+print("-----------------------------------------------")
+print("{:<10} {:<12} {:<12} {:<15}".format(
+    "Crop", "Humidity", "Temp", "Overall"
+))
+print("-----------------------------------------------")
+print("{:<10} {:<12} {:<12} {:<15}".format(
+    result["crop"],
+    result["humidity_status"],
+    result["temperature_status"],
+    result["overall_status"]
+))
+print("-----------------------------------------------")
