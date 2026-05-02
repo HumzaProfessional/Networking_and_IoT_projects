@@ -5,7 +5,6 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 # AWS IoT settings
 host = "a4is7kvmrakdy-ats.iot.us-east-2.amazonaws.com"
 clientId = "RaspberryZigbeeSimBridge"
-aws_topic = "farm/zone1/tomato/sensor"
 
 awsClient = AWSIoTMQTTClient(clientId)
 awsClient.configureEndpoint(host, 8883)
@@ -24,6 +23,22 @@ awsClient.configureMQTTOperationTimeout(5)
 awsClient.connect()
 print("Connected to AWS IoT")
 
+def publish_crop(zone, crop, temperature, humidity):
+    aws_topic = f"farm/{zone}/{crop}/sensor"
+
+    aws_payload = {
+        "zone": zone,
+        "crop": crop,
+        "temperature_c": temperature,
+        "humidity": humidity
+    }
+
+    messageJson = json.dumps(aws_payload)
+    awsClient.publish(aws_topic, messageJson, 1)
+
+    print("Published to AWS topic:", aws_topic)
+    print("Payload:", messageJson)
+
 def on_message(client, userdata, msg):
     try:
         print("Received local Zigbee-sim message:")
@@ -39,17 +54,8 @@ def on_message(client, userdata, msg):
             print("Missing temperature or humidity. Skipping.")
             return
 
-        aws_payload = {
-            "zone": "zone1",
-            "crop": "tomato",
-            "temperature_c": temperature,
-            "humidity": humidity
-        }
-
-        messageJson = json.dumps(aws_payload)
-        awsClient.publish(aws_topic, messageJson, 1)
-
-        print("Published to AWS:", messageJson)
+        publish_crop("zone1", "tomato", temperature, humidity)
+        publish_crop("zone2", "corn", temperature, humidity)
 
     except Exception as e:
         print("Error:", e)
