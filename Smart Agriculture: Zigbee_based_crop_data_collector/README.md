@@ -291,11 +291,13 @@ Version 1 successfully demonstrated:
 
 ## Challenges
 
-### Sensor Compatibility
+### Sensor Compatibility and availbilty 
 
 Different environmental sensors were considered during development. Some devices, including an attempted BME280 module, were not detected correctly through the Raspberry Pi I2C interface.
 
 The DHT11 sensor was used for the working Version 1 prototype because it provided reliable temperature and humidity readings.
+
+Getting the appropriate sensors for the project were costly and unreliable, such as the fertilizier and lead detector.
 
 ---
 
