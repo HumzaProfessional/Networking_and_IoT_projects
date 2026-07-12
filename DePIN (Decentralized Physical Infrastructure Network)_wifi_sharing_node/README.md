@@ -459,7 +459,7 @@ else:
 ---
 ## References
 
-The following resources were used to understand MicroPython networking, web-server development, JSON data handling, and file-system operations:
+The following resources were used to understand how to make a decentralized network node
 
 1. Raspberry Pi. “How to Run a Web Server on Raspberry Pi Pico W.”
    https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
