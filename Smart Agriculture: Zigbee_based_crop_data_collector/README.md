@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project explores how Internet of Things technologies can be used to collect environmental data for agricultural monitoring.
+This project explores how IoT systems can be used to collect environmental data for agricultural monitoring.
 
 Version 1 is a working prototype built with a Raspberry Pi, a DHT11 temperature and humidity sensor, and AWS cloud services. The prototype collects environmental readings, publishes them to AWS IoT Core, and evaluates the readings using crop-specific thresholds.
 
