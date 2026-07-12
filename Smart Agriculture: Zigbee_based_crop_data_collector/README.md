@@ -6,7 +6,7 @@ This project explores how IoT systems can be used to collect environmental data 
 
 Version 1 is a working prototype built with a Raspberry Pi, a DHT11 temperature and humidity sensor, and AWS cloud services. The prototype collects environmental readings, publishes them to AWS IoT Core, and evaluates the readings using crop-specific thresholds.
 
-Version 2 is the proposed full-scale design. It expands the prototype into a partitioned wireless sensor network using Zigbee communication, crop-specific sensor zones, local cluster heads, a gateway layer, and cloud-based processing.
+Version 2 is the proposed full-scale design. It expands the prototype into a partitioned wireless sensor network using Zigbee communication, crop-specific sensor zones, local cluster heads, a gateway layer, and cloud-based processing(e.g dashboard, alert system,
 
 ---
 
@@ -347,23 +347,7 @@ The project required testing each layer:
 6. Lambda processing
 7. CloudWatch output
 
----
 
-## What I Learned
-
-Through Version 1, I gained experience with:
-
-* Raspberry Pi GPIO and sensor integration
-* Python-based sensor acquisition
-* MQTT publish-and-subscribe communication
-* JSON message design
-* AWS IoT device configuration
-* Cloud certificate management
-* AWS IoT rules
-* AWS Lambda event processing
-* AWS CloudWatch logging
-* Crop-specific threshold evaluation
-* Debugging multi-layer IoT systems
 
 ---
 
@@ -695,7 +679,3 @@ certificates/
 * Expanded cloud storage and visualization
 
 ---
-
-
-
-GitHub: [HumzaProfessional](https://github.com/HumzaProfessional)
