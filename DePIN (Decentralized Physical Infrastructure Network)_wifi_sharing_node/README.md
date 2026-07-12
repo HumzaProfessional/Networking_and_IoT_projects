@@ -23,7 +23,7 @@ The ESP32 connects to a Wi-Fi network, hosts a local web server, identifies devi
 * Total bytes served
 * Estimated network usage
 
-The tokens in this project are locally generated accounting values. They are not connected to a blockchain or cryptocurrency network.
+The tokens in this project are locally generated accounting values accoriding to the program logic.
 
 The project serves as an early prototype of a decentralized physical infrastructure network, or DePIN, node.
 
@@ -125,9 +125,9 @@ Depending on the complete implementation, it can be used to:
 LEDGER_FILE = "ledger.json"
 ```
 
-This constant defines the filename used to store the device ledger.
+This defines the filename used to store the device ledger.
 
-The ledger contains information about devices that have interacted with the ESP32 web server.
+The ledger contains information about devices that have interacted with the ESP32 web server, it is a file store locally on the ESP32.
 
 A possible ledger structure is:
 
@@ -289,7 +289,7 @@ def connect_wifi():
         return None
 ```
 
-This function configures the ESP32 as a Wi-Fi station and attempts to connect it to an existing wireless network.
+This function configures the ESP32 for Wi-Fi and attempts to connect it to an existing wireless network.
 
 ---
 
