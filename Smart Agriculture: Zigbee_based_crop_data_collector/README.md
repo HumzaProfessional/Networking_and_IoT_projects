@@ -4,7 +4,7 @@
 
 This project explores how IoT systems can be used to collect environmental data for agricultural monitoring.
 
-Version 1 is a working prototype built with a Raspberry Pi, a DHT11 temperature and humidity sensor, and AWS cloud services. The prototype collects environmental readings, publishes them to AWS IoT Core, and evaluates the readings using crop-specific thresholds.
+Version 1 is a working prototype built with a Raspberry Pi, a DHT11 temperature and humidity sensor, and AWS cloud services. The prototype collects environmental readings, publishes them to AWS IoT Core, and evaluates the readings using crop-specific thresholds. This was done under a time crunch, so not everything envisoned could be realized.
 
 Version 2 is the proposed full-scale design. It expands the prototype into a partitioned wireless sensor network using Zigbee communication, crop-specific sensor zones, local cluster heads, a gateway layer, and cloud-based processing(e.g dashboard, alert system,
 
@@ -679,3 +679,21 @@ certificates/
 * Expanded cloud storage and visualization
 
 ---
+
+## References
+
+References
+
+## References
+
+1. Singh, A. K., Fru Junior, F. N., Mainsah, N. L., & Abdoul-Rahmane, B. (2025). Enabling data collection and analysis for precision agriculture in smart farms. *IEEE Transactions on AgriFood Electronics, 3*(1), 69–85. https://doi.org/10.1109/TAFE.2024.3454644
+
+2. Banna, H. U., Siegenthaler, J., Benedict, A., Allen, B., Martinez, R. M., Zhang, W., & Li, W. (2024). Heavy metal sensing in plant and soil solutions using a carbon fiber electrode. *Sensors and Actuators A: Physical*. https://www.sciencedirect.com/science/article/abs/pii/S0924424724002255
+
+3. Guevara, I., Ryan, S., Singh, A., Brandon, C., & Margaria, T. (2024). Edge IoT prototyping using model-driven representations: A use case for smart agriculture. *Sensors, 24*(2), Article 495. https://doi.org/10.3390/s24020495
+
+4. Tsoraeva, E., Bekmurzov, A., Kozyrev, S., Khoziev, A., & Kozyrev, A. (2020). Environmental issues of agriculture as a consequence of the intensification of the development of the agricultural industry. *E3S Web of Conferences*. https://www.e3s-conferences.org/articles/e3sconf/abs/2020/75/e3sconf_bft2020_02003/e3sconf_bft2020_02003.html
+
+5. Li, X., Zhu, L., Chu, X., & Fu, H. (2020). Edge computing-enabled wireless sensor networks for multiple data collection tasks in smart agriculture. *Journal of Sensors, 2020*, Article 4398061.
+
+6. Yang, Y., Tilman, D., Jin, Z., Smith, P., Barrett, C. B., Zhu, Y.-G., Burney, J., D’Odorico, P., Fantke, P., Fargione, J., Finlay, J. C., Rulli, M. C., Sloat, L., van Groenigen, K. J., West, P. C., Ziska, L., Michalak, A. M., Lobell, D. B., Clark, M., Colquhoun, J., Garg, T., Garrett, K. A., Geels, C., Hernandez, R. R., Herrero, M., Hutchison, W. D., et al. (2024). Climate change exacerbates the environmental impacts of agriculture. *Science*. https://pubmed.ncbi.nlm.nih.gov/39236181/
