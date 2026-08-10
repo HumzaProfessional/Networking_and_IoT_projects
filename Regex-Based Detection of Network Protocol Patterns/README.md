@@ -1,3 +1,7 @@
+## Purpose
+
+To capture packet data and analyze the content. Use regular expression to classify packet data into type classes.
+
 ## Goal
 
 - Implement a regex parser.
